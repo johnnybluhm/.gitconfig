@@ -1,0 +1,22 @@
+[alias]
+	g = !clear && git log --oneline --decorate --all --graph
+	a = !git add . 
+	s = status
+	c = "commit -m"
+	last = log -1 HEAD
+	l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	cleanUp = !git switch develop && git branch --merged | egrep -v \"(^\\*|master|dev)\" | xargs git branch -d
+	old = restore --staged Cse.Sprc.Web/appsettings.json
+	uncommit = !git reset --soft HEAD~1 && git pull
+[core]
+	editor = subl -wn
+[help]
+	autocorrect = 10
+[merge]
+	conflictstyle = merge
+[rerere]
+	enabled = true
+[fetch]
+	prune = true
+[credential "https://che-csegitlab.dtc.dish.corp"]
+	provider = generic
